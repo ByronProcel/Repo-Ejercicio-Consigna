@@ -136,7 +136,7 @@ void registroProductos(char productos[MAX_PRODUCTOS][30], float tiempo[MAX_PRODU
 
     if (hayCapacidad == 0)
     {
-        printf("Registre primero la capcidad de la fabrica (opcion 1)\n");
+        printf("Registre primero la capacidad de la fabrica (opcion 1)\n");
         return;
     }
 
@@ -253,6 +253,11 @@ void buscarProducto()
     char nombre[30];
     int opcionBuscar;
     posicion = -1; // se reinicia para cada nueva busqueda
+    if (totalProductos == 0)
+    {
+        printf("\nNo hay productos registrados\n");
+        return;
+    }
     printf("Ingrese el nombre buscado: \n");
     fgets(nombre, 30, stdin);
     if (nombre[strlen(nombre) - 1] == '\n')
@@ -271,7 +276,7 @@ void buscarProducto()
 
     if (posicion == -1)
     {
-        printf("\n valor invalido, ingrese nuevamente");
+        printf("\nProducto no encontrado");
         return;
     }
 
@@ -303,7 +308,7 @@ void buscarProducto()
         break;
 
     default:
-        printf("\nProducto no encontrado\n");
+        printf("\nOpcion invalida\n");
         break;
     }
 }
@@ -416,9 +421,8 @@ void mostrarProductos()
 
 int main()
 {
-    int opcion;
 
-    mostrarMenu(opcion);
+    mostrarMenu();
 
     return 0;
 }
