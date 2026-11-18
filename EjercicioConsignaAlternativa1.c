@@ -403,14 +403,18 @@ void mostrarProductos()
     {
         printf("No hay productos registrados");
     }
-
-    for (i = 0; i < MAX_PRODUCTOS; i++)
+    else
     {
-        printf("Existen datos registrados para producto #%d\n", i + 1);
-        printf("Nombre del producto: %s\n", productos[i]);
-        printf("Tiempo por Unidad: %f\n", tiempo[i]);
-        printf("Recursos por Unidad: %f\n", recursos[i]);
-        printf("Cantidad demandada del producto: %d\n", cantidadDemandada[i]);
+        for (i = 0; i < MAX_PRODUCTOS; i++)
+        {
+            printf("\n");
+            printf("Existen datos registrados para producto #%d\n", i + 1);
+            printf("Nombre del producto: %s\n", productos[i]);
+            printf("Tiempo por Unidad: %f\n", tiempo[i]);
+            printf("Recursos por Unidad: %f\n", recursos[i]);
+            printf("Cantidad demandada del producto: %d\n", cantidadDemandada[i]);
+            printf("\n");
+        }
     }
 }
 
