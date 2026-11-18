@@ -8,8 +8,8 @@ char productos[MAX_PRODUCTOS][30];
 float tiempo[MAX_PRODUCTOS];
 float recursos[MAX_PRODUCTOS];
 int cantidadDemandada[MAX_PRODUCTOS];
-int horasDisFabrica;
-float recursosDisponibles;
+int horasDisFabrica = 0;
+float recursosDisponibles = 0;
 int posicion = -1;
 int productosCargados = 0;
 float tiempoTotal = 0;
@@ -70,13 +70,14 @@ void mostrarMenu()
         printf("4. Mostrar productos.\n");
         printf("5. salir\n");
         printf("Ingrese su eleccion: ");
+
         if (scanf("%d", &opcion) != 1)
         {
             limpiarBuffer();
             printf("\nOpcion invalida\n");
             continue;
         }
-        limpiarBuffer;
+        limpiarBuffer();
 
         switch (opcion)
         {
