@@ -11,14 +11,11 @@ int cantidadDemandada[MAX_PRODUCTOS];
 int horasDisFabrica = 0;
 float recursosDisponibles = 0;
 int posicion = -1;
-int productosCargados = 0;
-float tiempoTotal = 0;
-float recursosTotal = 0;
 int hayCapacidad = 0;
 int totalProductos = 0;
 
 // prototipos de funciones
-void menu();
+void mostrarMenu();
 void limpiarBuffer();
 int comparar(char a[], char b[]);
 void calcularTotales(float *t, float *r);
@@ -193,8 +190,6 @@ void registroProductos(char productos[MAX_PRODUCTOS][30], float tiempo[MAX_PRODU
 
     totalProductos++;
     printf("\nProducto Guardado: %s\n", productos[p]);
-    // tiempoTotal += tiempo[i] * cantidadDemandada[i];
-    // recursosTotal += recursos[i] * cantidadDemandada[i];
 }
 
 void calcularTotales(float *t, float *r)
@@ -265,7 +260,7 @@ void buscarProducto()
         nombre[strlen(nombre) - 1] = '\0';
     }
 
-    for (i = 0; i < MAX_PRODUCTOS; i++)
+    for (i = 0; i < totalProductos; i++)
     {
         if (comparar(productos[i], nombre) == 0)
         {
@@ -292,6 +287,7 @@ void buscarProducto()
     printf("\n3. Cancelar");
     printf("\nIngrese su eleccion");
     scanf("%d", &opcionBuscar);
+    limpiarBuffer();
 
     switch (opcionBuscar)
     {
@@ -307,7 +303,7 @@ void buscarProducto()
         break;
 
     default:
-        printf("\nValor no valido, ingrese nuevamente\n");
+        printf("\nProducto no encontrado\n");
         break;
     }
 }
@@ -405,7 +401,7 @@ void mostrarProductos()
     }
     else
     {
-        for (i = 0; i < MAX_PRODUCTOS; i++)
+        for (i = 0; i < totalProductos; i++)
         {
             printf("\n");
             printf("Existen datos registrados para producto #%d\n", i + 1);
